@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 1.5rem;
+
+  .search-text {
+    width: 80%;
+    padding: 0.3rem 0;
+    font-size: var(--font-16);
+    font-weight: var(--font-bold);
+  }
+
+  .search-input {
+    border: 0;
+    width: 80%;
+    padding: 0.3rem 1rem;
+    font-size: var(--font-16);
+    font-weight: var(--font-bold);
+    outline: none;
+  }
+
+  .search-btn {
+    border: 0;
+    color: var(--white);
+    background-color: transparent;
+  }
+}
