@@ -3,21 +3,26 @@
     <app-header v-on:search="search" />
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
-    <router-view />
+    <router-view :searchQuery="searchQuery" />
   </div>
 </template>
 
 <script>
-import Header from "./components/layout/Header.vue";
+import Header from "@/components/layout/Header.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      searchQuery: "",
+    };
+  },
   components: {
     "app-header": Header,
   },
   methods: {
-    search(searchInput) {
-      console.log(searchInput);
+    search(query) {
+      this.searchQuery = query;
     },
   },
 };

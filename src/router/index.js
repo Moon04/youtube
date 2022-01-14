@@ -5,6 +5,9 @@ const routes = [
   {
     path: "/",
     name: "Home",
+    prop: {
+      searchQuery: String,
+    },
     component: Home,
   },
   {

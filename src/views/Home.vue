@@ -1,18 +1,39 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <filters />
+    <search-list :items="items" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Filters from "@/components/Filters.vue";
+import SearchList from "@/components/searchList/SearchList.vue";
+
+import { search } from "@/services/search";
 
 export default {
   name: "Home",
+  props: ["searchQuery"],
+  data() {
+    return {
+      items: [],
+    };
+  },
   components: {
-    HelloWorld,
+    filters: Filters,
+    "search-list": SearchList,
+  },
+  watch: {
+    searchQuery: {
+      immediate: true,
+      handler(query, prevQuery) {
+        console.log(prevQuery);
+        if (query) {
+          search(query).then((res) => (this.items = res.data.items));
+        }
+      },
+    },
   },
 };
 </script>
