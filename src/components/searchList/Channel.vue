@@ -1,5 +1,8 @@
 <template>
-  <div class="channel">
+  <router-link
+    :to="{ name: 'ChannelDetails', params: { id: channel.id.channelId } }"
+    class="channel"
+  >
     <img
       v-bind:alt="channel.snippet.channelTitle"
       v-bind:src="channel.snippet.thumbnails.medium.url"
@@ -9,7 +12,7 @@
         {{ channel.snippet.channelTitle }}</a
       >
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
