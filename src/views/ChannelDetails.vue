@@ -5,14 +5,16 @@
   <div v-if="channel" class="channel-details">
     <img class="cover" alt="channel cover" src="@/assets/channel-cover.jpg" />
     <div class="details">
-      <img
-        class="img"
-        v-bind:alt="channel.snippet.title"
-        v-bind:src="channel.snippet.thumbnails.medium.url"
-      />
-      <a v-bind:href="channel.snippet.title" class="title">
-        {{ channel.snippet.title }}
-      </a>
+      <div class="content">
+        <img
+          class="img"
+          v-bind:alt="channel.snippet.title"
+          v-bind:src="channel.snippet.thumbnails.medium.url"
+        />
+        <a v-bind:href="channel.snippet.title" class="title">
+          {{ channel.snippet.title }}
+        </a>
+      </div>
       <div class="desc">{{ channel.snippet.description }}</div>
     </div>
     <hr />

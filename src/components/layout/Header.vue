@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <logo />
+    <a href="/"> <logo /> </a>
     <p v-if="!isSearchActive" class="search-text" @click="activeSearchInput()">
       {{ searchInput || "Youtube" }}
     </p>
@@ -11,6 +11,7 @@
       v-model="searchInput"
       name="search-input"
       placeholder="Search"
+      autofocus
     />
     <button class="search-btn" type="button" @click="search()">
       <search-icon />
@@ -39,6 +40,8 @@ export default {
       this.isSearchActive = true;
     },
     search() {
+      console.log("in");
+      this.$router.push("/");
       this.isSearchActive = false;
       this.$emit("search", this.searchInput);
     },

@@ -17,18 +17,28 @@
   .details {
     padding: 2rem 0;
 
-    .img{
-      max-width: 180px;
-      margin-right: 1rem;
-      border-radius: 50%;
-    }
-    
-    .title {
-      display: inline-block;
-      text-decoration: none;
-      font-size: var(--font-16);
-      font-weight: var(--font-bold);
-      margin-bottom: 1rem;
+    .content {
+      display: flex;
+      position: relative;
+
+      .img{
+        max-width: 18rem;
+        margin-right: 1rem;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 6rem;
+      }
+      
+      .title {
+        display: inline-block;
+        text-decoration: none;
+        font-size: var(--font-16);
+        font-weight: var(--font-bold);
+        margin-bottom: 1rem;
+        position: absolute;
+        bottom: 12.5rem;
+        left: 19.5rem;
+      }
     }
 
     .desc {
