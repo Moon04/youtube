@@ -7,9 +7,9 @@ export const getChannel = (channelId) =>
     },
   });
 
-export const getRelatedVideos = (videoId) =>
-  YoutubeApi.get("/search", {
+export const getChannelPlaylists = (channelId) =>
+  YoutubeApi.get("/playlists", {
     params: {
-      ...baseParams({ type: "video", relatedToVideoId: videoId }),
+      ...baseParams({ channelId, maxResults: 10 }),
     },
   });

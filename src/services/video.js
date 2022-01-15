@@ -10,6 +10,10 @@ export const getVideo = (videoId) =>
 export const getRelatedVideos = (videoId) =>
   YoutubeApi.get("/search", {
     params: {
-      ...baseParams({ type: "video", relatedToVideoId: videoId }),
+      ...baseParams({
+        type: "video",
+        relatedToVideoId: videoId,
+        maxResults: 10,
+      }),
     },
   });

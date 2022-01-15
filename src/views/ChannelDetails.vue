@@ -18,23 +18,36 @@
       <div class="desc">{{ channel.snippet.description }}</div>
     </div>
     <hr />
+    <search-list :items="playlists" />
   </div>
 </template>
 
 <script>
-import { getChannel } from "@/services/channel";
+import SearchList from "@/components/searchList/SearchList.vue";
+
+import { getChannel, getChannelPlaylists } from "@/services/channel";
 
 export default {
   name: "ChannelDetails",
   data() {
     return {
       channel: null,
-      relatedVideos: [],
+      playlists: [],
     };
   },
   beforeCreate() {
     const channelId = this.$route.params.id;
     getChannel(channelId).then(({ data }) => (this.channel = data.items[0]));
+    getChannelPlaylists(channelId).then(
+      ({ data }) =>
+        (this.playlists = data.items.map((item) => ({
+          ...item,
+          id: { kind: "playlist", playlistId: item.id },
+        })))
+    );
+  },
+  components: {
+    "search-list": SearchList,
   },
 };
 </script>
