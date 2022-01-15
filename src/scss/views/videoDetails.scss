@@ -1,0 +1,30 @@
+.loading {
+
+}
+
+.video-details {
+  padding: 2rem;
+
+  iframe {
+    width: 100%;
+    height: 35rem;
+  }
+
+  .details {
+    padding: 2rem 0;
+    
+    .title {
+      display: inline-block;
+      text-decoration: none;
+      font-size: var(--font-16);
+      font-weight: var(--font-bold);
+      margin-bottom: 1rem;
+    }
+
+    .channel {
+      font-size: var(--font-12);
+      color: var(--grey);
+      margin-bottom: 1rem;
+    }
+  }
+}

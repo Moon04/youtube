@@ -27,8 +27,7 @@ export default {
   watch: {
     searchQuery: {
       immediate: true,
-      handler(query, prevQuery) {
-        console.log(prevQuery);
+      handler(query) {
         if (query) {
           search(query).then((res) => (this.items = res.data.items));
         }
