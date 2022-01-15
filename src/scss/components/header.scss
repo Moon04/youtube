@@ -1,12 +1,12 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  gap: 2rem;
   background-color: var(--primary);
   color: var(--white);
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
 
   .search-text {
-    width: 80%;
+    width: 70%;
     padding: 0.3rem 0;
     font-size: var(--font-16);
     font-weight: var(--font-bold);
