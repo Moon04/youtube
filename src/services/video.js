@@ -6,3 +6,10 @@ export const getVideo = (videoId) =>
       ...baseParams({ id: videoId }),
     },
   });
+
+export const getRelatedVideos = (videoId) =>
+  YoutubeApi.get("/search", {
+    params: {
+      ...baseParams({ type: "video", relatedToVideoId: videoId }),
+    },
+  });

@@ -1,6 +1,6 @@
 <template>
   <div v-if="!video" class="loading">
-    <div class="loader">Loading</div>
+    <div class="loader">Loading...</div>
   </div>
   <div v-if="video" class="video-details">
     <div className="embed">
@@ -19,11 +19,14 @@
       <div className="channel">{{ video.snippet.channelTitle }}</div>
     </div>
     <hr />
+    <search-list :items="relatedVideos" />
   </div>
 </template>
 
 <script>
-import { getVideo } from "@/services/video";
+import SearchList from "@/components/searchList/SearchList.vue";
+
+import { getVideo, getRelatedVideos } from "@/services/video";
 
 export default {
   name: "VideoDetails",
@@ -31,13 +34,21 @@ export default {
     return {
       video: null,
       videoSrc: "https://www.youtube.com/embed/",
+      relatedVideos: [],
     };
   },
   beforeCreate() {
-    getVideo(this.$route.params.id).then(({ data }) => {
+    const videoId = this.$route.params.id;
+    getVideo(videoId).then(({ data }) => {
       this.video = data.items[0];
       this.videoSrc = this.videoSrc + data.items[0].id.videoId;
     });
+    getRelatedVideos(videoId).then(
+      ({ data }) => (this.relatedVideos = data.items)
+    );
+  },
+  components: {
+    "search-list": SearchList,
   },
 };
 </script>
