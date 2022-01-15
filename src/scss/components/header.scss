@@ -4,6 +4,9 @@
   background-color: var(--primary);
   color: var(--white);
   padding: 1.5rem 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 
   .search-text {
     width: 70%;
