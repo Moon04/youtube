@@ -40,7 +40,6 @@ export default {
       this.isSearchActive = true;
     },
     search() {
-      console.log("in");
       this.$router.push("/");
       this.isSearchActive = false;
       this.$emit("search", this.searchInput);
